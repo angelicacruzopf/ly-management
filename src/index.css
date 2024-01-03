@@ -1,13 +1,237 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+/*---------------------------- FIXED NAV--------------------------- */
+
+.fixed-nav {
+  display: none;
+}
+
+.navbar li {
+  display: flex;
+  padding: 4px 8px;
+  justify-content: center;
+  align-items: center;
+  align-self: stretch;
+  padding: 8px 32px;
+}
+
+.navbar li:hover {
+  text-decoration: underline;
+  color: #FFB924;
+  transition: all ease-in 0.2s;
+  padding: 6px 6px;
+}
+
+/* --------------- BANNER HOME ---------------*/
+
+.banner {
+  background-image: url(./assets//img/hero-banner.png);
+  background-position: center;
+  background-size: cover;
+}
+
+
+/* ------------------TESTIMONIALS---------------- */
+
+.mySlidesTest {
+  display: none
+}
+
+.mySlidesTest.active {
+  display: block;
+}
+
+/* Slideshow container */
+.testimonial-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+  gap: 16px;
+}
+
+
+.mySlides.active {
+  display: block;
+}
+
+.mySlides.active::after{
+  content: none;
+}
+
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #ffffff50;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.dot:hover {
+  background-color: #000;
+}
+
+
+/* --------------FORM ---------------------*/
+
+
+label {
+  font-weight: 700;
+}
+
+.field {
+  position: relative;
+}
+
+form input[type=text],
+form input[type=tel],
+form input[type=email]{
+  width: 100%;
+  height: 42px;
+  background-color: #F5F5F5;
+  padding: 16px;
+}
+
+form textarea {
+  width: 100%;
+  resize: none;
+  background-color: #F5F5F5;
+  padding: 16px;
+}
+
+form button {
+  width: 100%;
+  margin: 0%;
+}
+
+.error {
+  padding: 4px;
+  color: #fff;
+  background-color: #D62744;
+  border-radius: 8px;
+  font-size: 10px;
+  font-weight: 600;
+  display: none;
+}
+
+.field input:invalid:focus ~ .error,
+.field textarea:invalid:focus ~ .error {
+  display: inline-block;
+}
+.label-before,
+.field input:focus + label::before,
+.field input:valid + label::before,
+.field textarea:focus + label::before,
+.field textarea:valid + label::before {
+  line-height: 20px;
+  font-size: 12px;
+  top: 2px;
+  padding: 0x 16px;
+  left: 16px;
+  color: #191a1b;
+  font-weight: 600;
+}
+
+.field label::before {
+  content: attr(title);
+  position: absolute;
+  left: 16px;
+  line-height: 50px;
+  font-size: 16px;
+  color: #666666;
+  transition: 300ms all;
+}
+.field input:valid + label::before {
+  content: attr(data-title);
+}
+
+.field textarea:valid + label::before {
+  content: attr(data-title);
+}
+
+.field input:focus:invalid + label::before,
+.field textarea:focus:invalid + label::before {
+  color: #db2777;
+}
+
+/* --------------- Accordion ------------------*/
+
+.accordion {
+  cursor: pointer;
+}
+
+.panel {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+.active + .panel {
+  max-height: 1000px; /* o un valor que sea suficientemente grande para contener el contenido real */
+}
+
+
+
+/*------------------- MEDIA QUERY -------------------------*/
+
+@media only screen and (min-width: 768px) {
+  .fixed-nav {
+    display: flex;
+  }
+
+  .mobile-nav {
+    display: none;
+  }
+
+  .navbar li {
+    padding: 0px;
+  }
+
+  .navbar li:hover {
+    text-decoration: underline;
+    color: #FFB924;
+    transition: all ease-in 0.2s;
+  }
+
+  .mySlides {
+    display: inline-block
+  }
+
+  .testimonial-card {
+    display: flex;
+  }
+
+  form textarea {
+    height: 120px;
+  }
+}
+
+
